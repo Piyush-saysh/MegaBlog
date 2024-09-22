@@ -15,7 +15,7 @@ export class Service{
     bucket; 
 
     constructor(){
-        this.client.setEndPoint(conf.appwriteUrl).setProjectId(conf.appwriteProjectId)
+        this.client.setEndpoint(conf.appwriteUrl).setProject(conf.appwriteProjectId)
 
         this.databases = new Databases(this.client);
         this.bucket = new Storage(this.client)

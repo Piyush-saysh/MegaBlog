@@ -12,7 +12,7 @@ export class StorService{
     bucket;
 
     constructor(){
-        this.client.setEndPoint(conf.appwriteUrl).setProjectId(conf.appwriteProjectId)
+        this.client.setEndpoint(conf.appwriteUrl).setProject(conf.appwriteProjectId)
 
         this.bucket = new Storage(this.client)
     }
