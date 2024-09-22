@@ -1,8 +1,9 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+1)  {authStatus && ()} agr authstatus true hoga tbhi ye parenthesis wala run krega
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+2)  {options?.map((option)=>(    // ? agr value hongi options mai to he loop krega wrna nhi 
+                    <option key={option} value={option}>
+                        {option}
+                    </option>
+                ))}
