@@ -99,5 +99,5 @@ export class Service{
 }
 
 
-const service = new Service();
-export default service;
+const dataservice = new Service();
+export default dataservice;

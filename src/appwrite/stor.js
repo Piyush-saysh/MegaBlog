@@ -52,5 +52,5 @@ export class StorService{
 
 }
 
-const storeService = StorService();
+const storeService = new StorService();
 export default storeService;
