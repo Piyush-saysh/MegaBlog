@@ -47,3 +47,27 @@
 
 
         register humesa spread kr ke he use krn hoga wrna wo dusro ki proerty overwrite kr dega or handlesubmit ek event ki trha hota hai usme tum ek define function daal do 
+
+
+4) https://www.tiny.cloud/docs/tinymce/latest/react-cloud/ -> for editor
+
+https://react-hook-form.com/get-started#IntegratingControlledInputs
+
+
+
+5) watch aaya hai react-hook-form se
+useEffect(()=>{
+        const subscription = watch((value, name)=>{
+            if(name ==='title'){
+                setValue('slug', slugTransform(value.title,{shouldValidate: true}))
+            }
+        })
+
+        return () =>{
+            subscription.unsubscribe()
+        }
+    },[watch, slugTransform ,setValue])
+
+
+
+optimize krne ke liye useEffect ko uske andr ki chiz ko ek variable mai store kr lo or fir return mai ek call back ko call kr ke usme return kro 
