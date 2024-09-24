@@ -55,7 +55,7 @@ https://react-hook-form.com/get-started#IntegratingControlledInputs
 
 
 
-5) watch aaya hai react-hook-form se
+5) watch aaya hai react-hook-form se postform mai milega ye code
 useEffect(()=>{
         const subscription = watch((value, name)=>{
             if(name ==='title'){
