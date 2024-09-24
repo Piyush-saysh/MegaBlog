@@ -71,3 +71,21 @@ useEffect(()=>{
 
 
 optimize krne ke liye useEffect ko uske andr ki chiz ko ek variable mai store kr lo or fir return mai ek call back ko call kr ke usme return kro 
+
+
+6) ye uska code jo string se space hta kr - lgyega postform mai he milega
+
+
+const slugTransform = useCallback((value)=> {
+        if(value && typeof value === 'string'){
+// worikin fine
+            // const slug = value.toLocaleLowerCase().replace(/ /g,'-')
+            // setValue('slug', slug)
+            // return slug
+
+
+            return value.trim().toLowerCase().replace(/^[a-zA-Z\d\s]+/g, '-').replace(/\s/g ,'-')
+
+
+        }
+
