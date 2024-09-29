@@ -1,6 +1,6 @@
 
 import React, {useCallback, useEffect} from 'react'
-import { set, useForm } from 'react-hook-form'
+import { useForm } from 'react-hook-form'
 import {Button, Input, Select, RTE} from '../index'
 
 
@@ -11,6 +11,7 @@ import dataservice from '../../appwrite/databa'
 
 
 export default function PostForm({post}){
+    console.log(post);
     const {register, handleSubmit, watch, setValue, control, getValues} = useForm({
         defaultValues:{
             title:post?.title || '',
@@ -24,7 +25,8 @@ export default function PostForm({post}){
 
     const submit = async (data)=>{
        if(post) {
-            const file = data.image[0]? storeService.uploadFile(data.image[0]):null;
+            const file = data.image[0] ? await storeService.uploadFile(data.image[0]) : null;
+            console.log(file);
             if(file){
                 storeService.deleteFile(post.featuredImage)  // check name
             }
@@ -33,14 +35,13 @@ export default function PostForm({post}){
                 navigate(`/post/${dbPost.$id}`)
             }
        }else{
-        const file = data.image[0]?await storeService.uploadFile(data.image[0]): null;
+        const file = await storeService.uploadFile(data.image[0]);
         if(file){
             const fileId = file.$id;
             data.featuredImage = fileId ;
             const dbPost = await dataservice.createPost({
                 ...data,
                 userId: userData.$id,
-
             })
             if(dbPost){
                 navigate(`/post/${dbPost.$id}`)
@@ -50,30 +51,29 @@ export default function PostForm({post}){
        }
     }
     const slugTransform = useCallback((value)=> {
-        if(value && typeof value === 'string'){
+        if(value && typeof value === 'string')
 // worikin fine
             // const slug = value.toLocaleLowerCase().replace(/ /g,'-')
             // setValue('slug', slug)
             // return slug
+            return value
+            .trim()
+            .toLowerCase()
+            .replace(/[^a-zA-Z\d\s]+/g, '-')
+            .replace(/\s/g, '-');
 
-
-            return value.trim().toLowerCase().replace(/[^a-zA-Z\d\s]+/g, '-').replace(/\s/g, '-');
-
-
-        }
-        return '';
+        return "";
     },[])
 
     useEffect(()=>{
-        const subscription = watch((value, name)=>{
+        const subscription = watch((value, {name})=>{
             if(name ==='title'){
                 setValue('slug', slugTransform(value.title),{shouldValidate: true})
             }
-        })
+        });
 
-        return () =>{
-            subscription.unsubscribe()
-        }
+        return () => subscription.unsubscribe()
+        
     },[watch, slugTransform ,setValue])
 
 

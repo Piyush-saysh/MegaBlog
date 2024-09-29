@@ -1,18 +1,19 @@
 import React, {useEffect, useState} from 'react'
 import dataservice from '../appwrite/databa'
 import { Container , PostCard } from '../components'
-import { useNavigate, useParams } from 'react-router-dom';
+
 
 export default function Home(){
 
     const [posts, setPosts] = useState([])
     useEffect(()=>{
         console.log(posts); // Add this to debug
-        if (Array.isArray(posts)) {
-            setPosts(posts);
-        } else {
-            console.error("Data is not an array", posts);
-        };
+        dataservice.getPosts().then((posts)=>{
+            if (posts) {
+                setPosts(posts.documents);
+            } 
+        })
+       
     },[])
     if(posts.length === 0){
         return (

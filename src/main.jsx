@@ -28,7 +28,8 @@ const rounter = createBrowserRouter([
       {
         path: '/login',
         element: (
-          <AuthLayout authentication={false} >
+          <AuthLayout authentication >
+            {false}
             <Login />
           </AuthLayout>
         )
@@ -44,7 +45,8 @@ const rounter = createBrowserRouter([
       {
         path: '/all-posts',
         element: (
-          <AuthLayout authentication={" "} >
+          <AuthLayout authentication>
+            {" "}
             <AllPost />
           </AuthLayout>
         ),
@@ -52,7 +54,8 @@ const rounter = createBrowserRouter([
       {
         path: '/add-post',
         element: (
-          <AuthLayout authentication={" "} >
+          <AuthLayout authentication>
+            {" "}
             <AddPost />
           </AuthLayout>
         )
@@ -60,7 +63,8 @@ const rounter = createBrowserRouter([
       {
         path: '/edit-post:slug',
         element: (
-          <AuthLayout authentication={" "} >
+          <AuthLayout authentication >
+            {" "}
             <EditPost />
           </AuthLayout>
         )
@@ -68,7 +72,8 @@ const rounter = createBrowserRouter([
       {
         path: '/post/:slug',
         element: (
-          <AuthLayout authentication={" "} >
+          <AuthLayout authentication  >
+            {" "}
             <Post />
           </AuthLayout>
         )

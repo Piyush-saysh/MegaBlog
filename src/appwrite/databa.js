@@ -12,13 +12,13 @@ import { Client, Account, ID, Databases, Storage, Query } from "appwrite";
 export class Service{
     client = new Client();
     databases ;
-    bucket; 
+
 
     constructor(){
         this.client.setEndpoint(conf.appwriteUrl).setProject(conf.appwriteProjectId)
 
         this.databases = new Databases(this.client);
-        this.bucket = new Storage(this.client)
+
     }
 
     async createPost({title, slug, content, featuredImage, status, userId}){
@@ -76,10 +76,10 @@ export class Service{
         try{return await this.databases.getDocument(
             conf.appwriteDatabaseId,
             conf.appwriteCollectionId,
-            slug
+            slug,
         )}
         catch(error){
-            console.log("getPost");
+            console.log("getPost: ---- ", error);
         }
     }
 

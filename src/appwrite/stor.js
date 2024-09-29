@@ -42,7 +42,7 @@ export class StorService{
         }
 
     }
-    getFilePreview(){
+    getFilePreview(fileId){
         return this.bucket.getFilePreview(
             conf.appwriteBucketId,
             fileId

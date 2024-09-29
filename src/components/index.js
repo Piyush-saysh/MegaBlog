@@ -10,7 +10,6 @@ import Select from "./Select";
 import Input from "./Input";
 import RTE from "./RTE";
 import PostForm from "./post-form/PostForm";
-// import PostCard from "./PostCard";
 import AuthLayout from './AuthLayout'
 import SignUp from "./SignUp";
 
