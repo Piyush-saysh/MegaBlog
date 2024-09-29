@@ -14,21 +14,21 @@ export default function PostForm({post}){
     const {register, handleSubmit, watch, setValue, control, getValues} = useForm({
         defaultValues:{
             title:post?.title || '',
-            slug:post?.slug || '',
+            slug:post?.$id || '',
             content:post?.content || '',
             status:post?.status || 'active',
         },
     });
     const navigate = useNavigate()
-    const userData = useSelector(state=>state.user.userData)
+    const userData = useSelector(state=>state.auth.userData)
 
     const submit = async (data)=>{
        if(post) {
             const file = data.image[0]? storeService.uploadFile(data.image[0]):null;
             if(file){
-                storeService.deleteFile(post.images)  // check name
+                storeService.deleteFile(post.featuredImage)  // check name
             }
-            const dbPost = await dataservice.updatePost(post.$id,{...data, images:file?file.$id: undefined})
+            const dbPost = await dataservice.updatePost(post.$id,{...data, featuredImage:file?file.$id: undefined})
             if(dbPost){
                 navigate(`/post/${dbPost.$id}`)
             }
@@ -36,7 +36,7 @@ export default function PostForm({post}){
         const file = data.image[0]?await storeService.uploadFile(data.image[0]): null;
         if(file){
             const fileId = file.$id;
-            data.images = fileId ;
+            data.featuredImage = fileId ;
             const dbPost = await dataservice.createPost({
                 ...data,
                 userId: userData.$id,
@@ -57,7 +57,7 @@ export default function PostForm({post}){
             // return slug
 
 
-            return value.trim().toLowerCase().replace(/^[a-zA-Z\d\s]+/g, '-').replace(/\s/g ,'-')
+            return value.trim().toLowerCase().replace(/[^a-zA-Z\d\s]+/g, '-').replace(/\s/g, '-');
 
 
         }
@@ -67,7 +67,7 @@ export default function PostForm({post}){
     useEffect(()=>{
         const subscription = watch((value, name)=>{
             if(name ==='title'){
-                setValue('slug', slugTransform(value.title,{shouldValidate: true}))
+                setValue('slug', slugTransform(value.title),{shouldValidate: true})
             }
         })
 
@@ -108,7 +108,7 @@ export default function PostForm({post}){
             {post && (
                 <div className="w-full mb-4">
                     <img
-                        src={appwriteService.getFilePreview(post.featuredImage)}
+                        src={storeService.getFilePreview(post.featuredImage)}
                         alt={post.title}
                         className="rounded-lg"
                     />

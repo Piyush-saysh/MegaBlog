@@ -43,8 +43,8 @@ export default function Header(){
 
     return (
         <header className="py-3 shadow bg-gray-500 ">
-            <Container className= 'flex'>
-                <nax>
+            <Container >
+                <nav className= 'flex'>
                     <div className="mr-4">
                         <Link to = '/'>
                             <Logo width='70px' />
@@ -57,12 +57,9 @@ export default function Header(){
                             item.active ? (
                                 <li key={item.name}>
                                     <button
-                                        onClick={()=> navigate(item.slug)}
-                                        className='inline-block 
-                                        px-6 py-2 duration-200 hover: bg-blue-100 rounded-full'
-                                    >
-                                        {item.name}
-                                    </button>
+                                        onClick={() => navigate(item.slug)}
+                                        className='inline-bock px-6 py-2 duration-200 hover:bg-blue-100 rounded-full'
+                                        >{item.name}</button>
                                 </li>
                             ) : null
 
@@ -74,7 +71,7 @@ export default function Header(){
                         )}
 
                     </ul>
-                </nax>
+                </nav>
             </Container>
 
         </header>

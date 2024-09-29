@@ -7,12 +7,12 @@ export default function Home(){
 
     const [posts, setPosts] = useState([])
     useEffect(()=>{
-        dataservice.getPosts([]).then((posts) => {
-            if(posts){
-                setPosts(posts)
-            }
-    
-        })
+        console.log(posts); // Add this to debug
+        if (Array.isArray(posts)) {
+            setPosts(posts);
+        } else {
+            console.error("Data is not an array", posts);
+        };
     },[])
     if(posts.length === 0){
         return (
