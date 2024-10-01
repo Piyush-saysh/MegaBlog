@@ -10,9 +10,9 @@ export default function Header() {
 
     const navItems = [
         {
-            name: 'Home',
-            slug: '/',
-            active: true,
+            name:'',
+            slug:'/',
+            active: !authStatus
         },
         {
             name: 'Login',
@@ -23,6 +23,11 @@ export default function Header() {
             name: 'Sign-up',
             slug: '/signup',
             active: !authStatus,
+        },
+        {
+            name: 'Home',
+            slug: '/',
+            active: authStatus,
         },
         {
             name: 'All Posts',
@@ -77,4 +82,43 @@ export default function Header() {
             </Container>
         </header>
     );
+
+
+//    // side navbar
+
+
+    // return (
+    //     <aside className="fixed inset-y-0 left-0 w-64 bg-gray-800 text-white shadow-lg">
+    //         <div className="flex flex-col items-center py-8">
+    //             {/* Logo */}
+    //             <Link to="/" className="mb-6">
+    //                 <Logo width="80px" />
+    //             </Link>
+
+    //             {/* Navigation Links */}
+    //             <ul className="flex flex-col space-y-4 w-full px-4">
+    //                 {navItems.map((item) =>
+    //                     item.active ? (
+    //                         <li key={item.name}>
+    //                             <button
+    //                                 onClick={() => navigate(item.slug)}
+    //                                 className="w-full text-left px-4 py-2 text-lg rounded-md hover:bg-gray-700 transition duration-200 ease-in-out"
+    //                             >
+    //                                 {item.name}
+    //                             </button>
+    //                         </li>
+    //                     ) : null
+    //                 )}
+
+    //                 {/* Logout Button */}
+    //                 {authStatus && (
+    //                     <li className="mt-auto">
+    //                         <LogoutBtn className="w-full px-4 py-2 rounded-md bg-red-600 hover:bg-red-700 transition duration-200 ease-in-out text-white" />
+    //                     </li>
+    //                 )}
+    //             </ul>
+    //         </div>
+    //     </aside>
+    // );
+
 }
