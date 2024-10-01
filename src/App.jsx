@@ -37,11 +37,11 @@ function App() {
   },[])
   
   return !loading?(
-    <div className='full-h-screen flex flex-wrap content-between bg-gray-700'>
+    <div className='full-h-screen flex flex-wrap content-between bg-app'>
       <div className="w-full block">
         <Header />
             <main>
-              todo  <Outlet />
+                <Outlet />
             </main>
         <Footer />
       </div>

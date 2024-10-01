@@ -1,51 +1,49 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import Logo from '../Logo'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import Logo from '../Logo';
 
-
-export default function Footer(){
-
+export default function Footer() {
     return (
-        <section className="relative overflow-hidden py-10 bg-gray-400 border border-t-2 border-t-black">
-            <div className="relative z-10 mx-auto max-w-7xl px-4">
-                <div className="-m-6 flex flex-wrap">
+        <footer className="py-10 bg-footer_header border-t-4 border-gray-900">
+            <div className="container mx-auto px-4">
+                <div className="flex flex-wrap -m-6">
+                    {/* Logo and Copyright Section */}
                     <div className="w-full p-6 md:w-1/2 lg:w-5/12">
                         <div className="flex h-full flex-col justify-between">
-                            <div className="mb-4 inline-flex items-center">
+                            <div className="mb-4 flex items-center">
                                 <Logo width="100px" />
                             </div>
-                            <div>
-                                <p className="text-sm text-gray-600">
-                                    &copy; Copyright 2023. All Rights Reserved by DevUI.
-                                </p>
-                            </div>
+                            <p className="text-sm text-gray-400">
+                                &copy; Copyright 2023. All Rights Reserved by DevUI.
+                            </p>
                         </div>
                     </div>
+
                     <div className="w-full p-6 md:w-1/2 lg:w-2/12">
                         <div className="h-full">
-                            <h3 className="tracking-px mb-9  text-xs font-semibold uppercase text-gray-500">
+                            <h3 className="text-xs font-semibold uppercase text-gray-500 tracking-widest mb-6">
                                 Company
                             </h3>
-                            <ul>
-                                <li className="mb-4">
+                            <ul className="space-y-4">
+                                <li>
                                     <Link
-                                        className=" text-base font-medium text-gray-900 hover:text-gray-700"
+                                        className="text-base font-medium text-gray-300 hover:text-white transition-colors duration-200"
                                         to="/"
                                     >
                                         Features
                                     </Link>
                                 </li>
-                                <li className="mb-4">
+                                <li>
                                     <Link
-                                        className=" text-base font-medium text-gray-900 hover:text-gray-700"
+                                        className="text-base font-medium text-gray-300 hover:text-white transition-colors duration-200"
                                         to="/"
                                     >
                                         Pricing
                                     </Link>
                                 </li>
-                                <li className="mb-4">
+                                <li>
                                     <Link
-                                        className=" text-base font-medium text-gray-900 hover:text-gray-700"
+                                        className="text-base font-medium text-gray-300 hover:text-white transition-colors duration-200"
                                         to="/"
                                     >
                                         Affiliate Program
@@ -53,7 +51,7 @@ export default function Footer(){
                                 </li>
                                 <li>
                                     <Link
-                                        className=" text-base font-medium text-gray-900 hover:text-gray-700"
+                                        className="text-base font-medium text-gray-300 hover:text-white transition-colors duration-200"
                                         to="/"
                                     >
                                         Press Kit
@@ -62,31 +60,33 @@ export default function Footer(){
                             </ul>
                         </div>
                     </div>
+
+
                     <div className="w-full p-6 md:w-1/2 lg:w-2/12">
                         <div className="h-full">
-                            <h3 className="tracking-px mb-9  text-xs font-semibold uppercase text-gray-500">
+                            <h3 className="text-xs font-semibold uppercase text-gray-500 tracking-widest mb-6">
                                 Support
                             </h3>
-                            <ul>
-                                <li className="mb-4">
+                            <ul className="space-y-4">
+                                <li>
                                     <Link
-                                        className=" text-base font-medium text-gray-900 hover:text-gray-700"
+                                        className="text-base font-medium text-gray-300 hover:text-white transition-colors duration-200"
                                         to="/"
                                     >
                                         Account
                                     </Link>
                                 </li>
-                                <li className="mb-4">
+                                <li>
                                     <Link
-                                        className=" text-base font-medium text-gray-900 hover:text-gray-700"
+                                        className="text-base font-medium text-gray-300 hover:text-white transition-colors duration-200"
                                         to="/"
                                     >
                                         Help
                                     </Link>
                                 </li>
-                                <li className="mb-4">
+                                <li>
                                     <Link
-                                        className=" text-base font-medium text-gray-900 hover:text-gray-700"
+                                        className="text-base font-medium text-gray-300 hover:text-white transition-colors duration-200"
                                         to="/"
                                     >
                                         Contact Us
@@ -94,7 +94,7 @@ export default function Footer(){
                                 </li>
                                 <li>
                                     <Link
-                                        className=" text-base font-medium text-gray-900 hover:text-gray-700"
+                                        className="text-base font-medium text-gray-300 hover:text-white transition-colors duration-200"
                                         to="/"
                                     >
                                         Customer Support
@@ -103,23 +103,25 @@ export default function Footer(){
                             </ul>
                         </div>
                     </div>
+
+                    {/* Legal Section */}
                     <div className="w-full p-6 md:w-1/2 lg:w-3/12">
                         <div className="h-full">
-                            <h3 className="tracking-px mb-9  text-xs font-semibold uppercase text-gray-500">
+                            <h3 className="text-xs font-semibold uppercase text-gray-500 tracking-widest mb-6">
                                 Legals
                             </h3>
-                            <ul>
-                                <li className="mb-4">
+                            <ul className="space-y-4">
+                                <li>
                                     <Link
-                                        className=" text-base font-medium text-gray-900 hover:text-gray-700"
+                                        className="text-base font-medium text-gray-300 hover:text-white transition-colors duration-200"
                                         to="/"
                                     >
                                         Terms &amp; Conditions
                                     </Link>
                                 </li>
-                                <li className="mb-4">
+                                <li>
                                     <Link
-                                        className=" text-base font-medium text-gray-900 hover:text-gray-700"
+                                        className="text-base font-medium text-gray-300 hover:text-white transition-colors duration-200"
                                         to="/"
                                     >
                                         Privacy Policy
@@ -127,7 +129,7 @@ export default function Footer(){
                                 </li>
                                 <li>
                                     <Link
-                                        className=" text-base font-medium text-gray-900 hover:text-gray-700"
+                                        className="text-base font-medium text-gray-300 hover:text-white transition-colors duration-200"
                                         to="/"
                                     >
                                         Licensing
@@ -138,6 +140,6 @@ export default function Footer(){
                     </div>
                 </div>
             </div>
-        </section>
-    )
-} 
+        </footer>
+    );
+}
