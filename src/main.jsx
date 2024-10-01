@@ -14,6 +14,7 @@ import AllPost from './pages/AllPosts.jsx'
 import AddPost from './pages/AddPost.jsx'
 import EditPost from './pages/EditPost.jsx'
 import Post from './pages/Post.jsx'
+import MyPost from './pages/MyPost.jsx'
 
 const rounter = createBrowserRouter([
   {
@@ -37,7 +38,8 @@ const rounter = createBrowserRouter([
       {
         path: '/signup',
         element: (
-          <AuthLayout authentication={false} >
+          <AuthLayout authentication>
+            {false}
             <Signup />
           </AuthLayout>
         )
@@ -61,7 +63,7 @@ const rounter = createBrowserRouter([
         )
       },
       {
-        path: '/edit-post:slug',
+        path: '/edit-post/:slug',
         element: (
           <AuthLayout authentication >
             {" "}
@@ -75,6 +77,15 @@ const rounter = createBrowserRouter([
           <AuthLayout authentication  >
             {" "}
             <Post />
+          </AuthLayout>
+        )
+      },
+      {
+        path: '/my-post',
+        element: (
+          <AuthLayout authentication  >
+            {" "}
+            <MyPost />
           </AuthLayout>
         )
       },

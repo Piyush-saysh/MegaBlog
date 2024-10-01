@@ -5,7 +5,6 @@ import { Container , PostCard } from '../components'
 export default function AllPost(){
     const [posts, setPosts] = useState([])
     useEffect(()=>{
-        
         dataservice.getPosts([]).then((posts) => {
 
             if(posts){

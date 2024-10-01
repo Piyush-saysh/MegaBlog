@@ -11,7 +11,7 @@ import dataservice from '../../appwrite/databa'
 
 
 export default function PostForm({post}){
-    console.log(post);
+
     const {register, handleSubmit, watch, setValue, control, getValues} = useForm({
         defaultValues:{
             title:post?.title || '',
@@ -26,7 +26,7 @@ export default function PostForm({post}){
     const submit = async (data)=>{
        if(post) {
             const file = data.image[0] ? await storeService.uploadFile(data.image[0]) : null;
-            console.log(file);
+
             if(file){
                 storeService.deleteFile(post.featuredImage)  // check name
             }
@@ -77,6 +77,7 @@ export default function PostForm({post}){
     },[watch, slugTransform ,setValue])
 
 
+
     return (
         <form onSubmit={handleSubmit(submit)} className="flex flex-wrap">
         <div className="w-2/3 px-2">
@@ -106,12 +107,24 @@ export default function PostForm({post}){
                 {...register("image", { required: !post })}
             />
             {post && (
-                <div className="w-full mb-4">
+
+                // <div className="w-full mb-4">
+                //     <img
+                //         src={storeService.getFilePreview(post.featuredImage)}
+                //         alt={post.title}
+                //         className="rounded-lg"
+                //     />
+                // </div>
+                <div>
+                    {post.featuredImage ? (
                     <img
                         src={storeService.getFilePreview(post.featuredImage)}
                         alt={post.title}
                         className="rounded-lg"
                     />
+                    ) : (
+                    <p>Loading image...</p> 
+                    )}
                 </div>
             )}
             <Select

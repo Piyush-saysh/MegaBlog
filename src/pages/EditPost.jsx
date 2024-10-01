@@ -1,7 +1,7 @@
 
 import React, { useEffect, useState } from 'react'
 import dataservice from '../appwrite/databa'
-import { Container , PostCard } from '../components'
+import { Container , PostForm } from '../components'
 import { useNavigate, useParams } from 'react-router-dom';
 export default function EditPost(){
     const [post, setPost] = useState([]);

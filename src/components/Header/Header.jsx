@@ -38,6 +38,11 @@ export default function Header(){
               slug: "/add-post",
               active: authStatus,
           },
+          {
+              name: "My Post",
+              slug: "/my-post",
+              active: authStatus,
+          },
         ]
     
 
