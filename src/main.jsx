@@ -29,8 +29,8 @@ const rounter = createBrowserRouter([
       {
         path: '/login',
         element: (
-          <AuthLayout authentication >
-            {false}
+          <AuthLayout authentication = {false}>
+
             <Login />
           </AuthLayout>
         )
@@ -38,8 +38,8 @@ const rounter = createBrowserRouter([
       {
         path: '/signup',
         element: (
-          <AuthLayout authentication>
-            {false}
+          <AuthLayout authentication = {false}>
+
             <Signup />
           </AuthLayout>
         )
